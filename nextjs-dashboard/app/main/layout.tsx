@@ -1,6 +1,5 @@
 import React from 'react';
 import Navbar from '../ui/dashboard/navbar';
-import '@/app/ui/global.css';
 interface LayoutProps {
   money: number;
   children: React.ReactNode;
