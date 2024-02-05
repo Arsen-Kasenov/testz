@@ -11,11 +11,14 @@ import Link from 'next/link';
 // Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/dashboard', icon: HomeIcon },
+  { name: 'Account', href: '/dashboard/account', icon: DocumentDuplicateIcon}, 
   {
     name: 'To-do list',
     href: '/dashboard/to-dolist',
     icon: DocumentDuplicateIcon,
   },
+  { name: 'Missions', href: '/dashboard/missions', icon: DocumentDuplicateIcon},
+  { name: 'Shop', href: '/dashboard/shop', icon: DocumentDuplicateIcon},
   { name: 'Community', href: '/dashboard/community', icon: UserGroupIcon },
 ];
 

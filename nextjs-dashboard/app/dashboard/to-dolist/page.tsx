@@ -83,7 +83,7 @@ const TodoListPage = (props) => {
                         <div className="grid grid-cols-2 gap-4 mb-2">
                             <div className="flex flex-col">
                                 <label htmlFor="tag" className="text-gray-600 mb-1">
-                                    Tag
+                                    Tag     
                                 </label>
                                 <input
                                     type="text"
@@ -185,7 +185,7 @@ const TodoListPage = (props) => {
 
                                         <button
                                             onClick={() => handleDeleteTask(index, section)}
-                                            className="bg-red-500 hover:bg-red-600 text-white rounded px-4 py-2"
+                                            className="bg-red-500 hover:bg-red-600 text-white rounded px-4 py-2 float-right"
                                         >
                                             Delete Task
                                         </button>
