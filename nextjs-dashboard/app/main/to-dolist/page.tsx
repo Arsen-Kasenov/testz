@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 const TodoListPage = (props) => {
     const [money, setMoney ] = useState(0);
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -18,7 +18,6 @@ const TodoListPage = (props) => {
     const handleInputChange1 = (e: React.ChangeEvent<HTMLInputElement>) => {
         setNewTask({ ...newTask, [e.target.name]: e.target.value });
     };
-
     const handleCreateTask = () => {
         setTasks([...tasks, newTask]);
         setNewTask({
@@ -154,7 +153,7 @@ const TodoListPage = (props) => {
             {Array.from(new Set(tasks.map((task) => task.section))).map((section) => {
                 const sectionTasks = tasks.filter((task) => task.section === section);
                 return (
-                    <div key={section} className="border border-gray-300 rounded p-4 mb-4">
+                    <div key={section} className={`border bg-white border-gray-300 rounded p-4 mb-4 ${foldedSections.includes(section) ? 'bg-gray-200' : ''}`}>
                         <h3 className="text-lg font-bold mb-2">
                             <button
                                 onClick={() => toggleSection(section)}

@@ -87,9 +87,11 @@
             }, [missions]);
 
             return (
-                <div className="container mx-auto">
+                <div className="container mx-auto ">
+                    <div className='flex items-center justify-between'>
                     <h1 className="text-3xl font-bold mb-4">Missions</h1>
-                    <p>Left time to new task: {elapsedTime} seconds</p> {/* Display elapsed time */}
+                    <h1 className="text-3xl font-bold mb-4">Left time to new task: {elapsedTime} seconds</h1>
+                    </div>
                     <div className="grid grid-cols-3 gap-4">
                         {missions.map((mission, index) => (
                             <div className="bg-white p-4 shadow-md" key={index}>
