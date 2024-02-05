@@ -111,7 +111,6 @@
                                 </div>
                             </div>
                         ))}
-                        {/* Add more mission cards here */}
                     </div>
                     <button
                         className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded mt-4"
@@ -154,7 +153,7 @@
                                     </button>
                                     <button
                                         className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                                        onClick={() => setShowViewPage(false)} // Set showViewPage state to false to hide the pop-up window
+                                        onClick={() => setShowViewPage(false)}
                                     >
                                         Close
                                     </button>

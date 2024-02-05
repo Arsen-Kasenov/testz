@@ -1,6 +1,5 @@
 'use client'
-import React, { useState } from 'react';
-
+import React, { useState } from 'react'
 const TodoListPage = (props) => {
     const [money, setMoney ] = useState(0);
     const [tasks, setTasks] = useState<Task[]>([]);
@@ -10,9 +9,6 @@ const TodoListPage = (props) => {
         tag: '',
         section: '',
     });
-    const getMoney = () => {
-        props(money);
-    }
     const [showPopup, setShowPopup] = useState(false);
     const [foldedSections, setFoldedSections] = useState<string[]>([]);
 
@@ -196,7 +192,6 @@ const TodoListPage = (props) => {
                     </div>
                 );
             })}
-
             <div>
                 <h2>Money: {money}</h2> {/* Display money value */}
             </div>

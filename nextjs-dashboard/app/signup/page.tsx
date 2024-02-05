@@ -1,11 +1,20 @@
 'use client'
 import React, { useState } from 'react';
-
+import axios from 'axios';
 const SignUpPage: React.FC = () => {
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [nickname, setNickname] = useState('');
     const [confirmPassword, setConfirmPassword] = useState('');
+
+    const saveData = async () => {
+        try {
+          await axios.post('http://localhost:3001/saveData', { nickname, password });
+          console.log('Data saved successfully');
+        } catch (error) {
+          console.error('Error saving data:', error);
+        }
+      };
 
     const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
         setEmail(e.target.value);
@@ -87,6 +96,7 @@ const SignUpPage: React.FC = () => {
                     <button
                         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline"
                         type="submit"
+                        onClick={saveData}
                     >
                         Sign Up
                     </button>

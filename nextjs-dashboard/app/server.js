@@ -1,58 +1,58 @@
-const express = require('express');
-const bodyParser = require('body-parser');
-const cors = require('cors');
-const mysql = require('mysql');
+import express from 'express';
+import cors from 'cors';
+import mysql from 'mysql';
+app.use(express.json());
 
 const app = express();
-const port = 3001;
 
 app.use(cors());
-app.use(bodyParser.json());
-const db = mysql.createConnection({
-   host: 'localhost',
-   user: 'your_mysql_username',
-   password: 'your_mysql_password',
-   database: 'your_database_name',
+app.use(express.json());
+
+const connection = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',
+  password: '',
+  database: 'your_database_name',
 });
 
-db.connect((err) => {
-   if (err) {
-      console.error('Error connecting to MySQL:', err);
-   } else {
-      console.log('Connected to MySQL');
-   }
+connection.connect((err) => {
+  if (err) {
+    console.error('Error connecting to MySQL:', err);
+  } else {
+    console.log('Connected to MySQL database');
+  }
 });
 
-app.listen(port, () => {
-   console.log(`Server is running on port ${port}`);
+app.get('/users', (req, res) => {
+  connection.query('SELECT * FROM users', (err) => {
+    if (err) {
+      res.status(500).send('Error retrieving users from database');
+    } else {
+      res.json();
+    }
+  });
 });
-// Sign-up
-app.post('/signup', (req, res) => {
-    const { username, password } = req.body;
-    const sql = 'INSERT INTO users (username, password) VALUES (?, ?)';
-    db.query(sql, [username, password], (err, result) => {
-       if (err) {
-          res.status(500).send('Error signing up');
-       } else {
-          res.status(200).send('Signed up successfully');
-       }
-    });
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
+});
+
+// 1 
+app.post('/saveData', (req, res) => {
+   const { nickname, password } = req.body;
+ 
+   // Validate or sanitize data if needed
+ 
+   const query = 'INSERT INTO users (column1, column2) VALUES (?, ?)';
+   connection.query(query, [nickname, password], (err) => {
+     if (err) {
+       console.error('Error saving data to the database:', err);
+       res.status(500).send('Error saving data to the database');
+     } else {
+      console.log('Data saved successfully');
+       res.status(200).send('Data saved successfully');
+     }
+   });
  });
- 
- // Sign-in
- /* app.post('/signin', (req, res) => {
-    const { username, password } = req.body;
-    const sql = 'SELECT * FROM users WHERE username = ? AND password = ?';
-    db.query(sql, [username, password], (err, result) => {
-       if (err) {
-          res.status(500).send('Error signing in');
-       } else {
-          if (result.length > 0) {
-             res.status(200).send('Signed in successfully');
-          } else {
-             res.status(401).send('Invalid credentials');
-          }
-       }
-    });
- }); */
- 
+ // 1
