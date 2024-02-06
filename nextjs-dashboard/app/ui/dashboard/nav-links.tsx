@@ -7,19 +7,17 @@ import {
   DocumentDuplicateIcon,
 } from '@heroicons/react/24/outline';
 import Link from 'next/link';
-// Map of links to display in the side navigation.
-// Depending on the size of the application, this would be stored in a database.
 const links = [
   { name: 'Home', href: '/main', icon: HomeIcon },
   { name: 'Account', href: '/dashboard/account', icon: DocumentDuplicateIcon}, 
-  {
-    name: 'To-do list',
-    href: '/main/to-dolist',
+  /* {
+    name: 'Homework',
+    href: '/main/homework',
     icon: DocumentDuplicateIcon,
-  },
-  { name: 'Missions', href: '/main/missions', icon: DocumentDuplicateIcon},
+  }, */
+  // { name: 'Missions', href: '/main/missions', icon: DocumentDuplicateIcon},
   { name: 'Shop', href: '/dashboard/shop', icon: DocumentDuplicateIcon},
-  { name: 'Community', href: '/main/community', icon: UserGroupIcon },
+  { name: 'Settings', href: '/dashboard/settings', icon: UserGroupIcon },
 ];
 
 export default function NavLinks() {

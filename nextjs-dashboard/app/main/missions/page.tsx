@@ -15,7 +15,7 @@
                 },
                 {
                     title: 'Daily Mission #2',
-                    description: 'Complete 2 tasks from the to-do list',
+                    description: 'Complete 2 Homework tasks',
                 },
                 {
                     title: 'Special Mission #1',

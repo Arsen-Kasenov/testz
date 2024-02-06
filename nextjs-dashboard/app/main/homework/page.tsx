@@ -12,6 +12,16 @@ const TodoListPage = (props) => {
     const [showPopup, setShowPopup] = useState(false);
     const [foldedSections, setFoldedSections] = useState<string[]>([]);
 
+    useEffect(() => {
+        const initialTask: Task = {
+            task: '#12 page. 283',
+            time: '10:00 AM',
+            tag: 'Math',
+            section: 'Homework',
+        };
+        setTasks([initialTask, ...tasks]);
+    }, []);
+
     const handleInputChange = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
         setNewTask({ ...newTask, [e.target.name]: e.target.value });
     };
@@ -61,7 +71,7 @@ const TodoListPage = (props) => {
 
     return (
         <div className="container mx-auto p-4">
-            <h1 className="text-2xl font-bold mb-4">To-Do List</h1>
+            <h1 className="text-2xl bg-white font-bold mb-4">Homework</h1>
 
             <div className="mb-4">
                 <button
@@ -169,7 +179,7 @@ const TodoListPage = (props) => {
                                     <li key={index} className="border border-gray-300 rounded p-4 mb-4">
                                         <h3 className="text-lg font-bold mb-2">{task.task}</h3>
                                         <p className="text-gray-600 mb-2">
-                                            Time: {task.time} | Tag: {task.tag} | Section: {task.section}
+                                            DeadLine: {task.time} | Tag: {task.tag} | Section: {task.section}
                                         </p>
                                         <button
                                             onClick={() => handleCompleteTask(index, section)}

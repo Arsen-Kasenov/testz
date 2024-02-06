@@ -11,7 +11,7 @@ export default function Page() {
       {/* <NISlogo /> */}
       <div className="mt-4 flex grow flex-col gap-4 md:flex-row">
         <div className="flex flex-col justify-center gap-6 rounded-lg px-6 py-10 md:w-2/5 md:px-20">
-          <div className=" h-48 px-4 py-2 ml-2 rounded-lg">
+          <div className="h-48 px-4 py-2 ml-2 rounded-lg">
           <p className={`text-xl text-gray-800 md:text-3xl md:leading-normal ${lusitana.className} antialiased`}>
             <strong>Welcome to NIStudy.</strong> {' '}
           </p>
